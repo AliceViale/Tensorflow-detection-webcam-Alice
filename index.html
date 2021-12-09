@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Lien avec Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Lien avec page CSS -->
+    <link rel="stylesheet" href="brief.css">
+    <title>Nono le robot</title>
+</head>
+<header>
+    <!-- Création d'un container pour la barre de titre -->
+    <div class="container mt-2 bg-light">
+        <div class="row mb-5">
+            <div class="col-12 col-md-4">
+                <img class="imagenonotaille" src="IMAGES/Lejouetconnecté.png" alt="Logo entreprise">
+            </div>    
+            <div class="col-12 col-md-4"> 
+                <h1>NONO le Robot</h1>
+            </div>
+            <div class="col-12 col-md-4"></div>
+        </div>
+    </div>
+</header>
+<body>
+    <!-- Création d'un container pour insérer un carré pour faciliter l'intégration de la webcam dans le fond d'écran -->
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-6 col-md-4">
+                <div class="carrewebcam"> <video id="webcam" autoplay muted width="450" height="350"></video> </div>
+                <section id="demos">        
+                    <div id="liveView" class="camView">
+                    </div>
+                    <!-- Boutons pour la webcam -->
+                    <div class="container_button">
+                        <button id="webcamButtonplay">Allumer</button>
+                        <button id="webcamButtonoff">Eteindre</button>
+                    </div>
+                </section>
+                <div class="col-6 col-md-4"></div>    
+        </div>
+    </div>
+    <!-- Chargement des bibliothèques tensorflow -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <!-- Liaison de mon script JS -->
+    <script src="script.js"></script>
+</body>
+</html>
