@@ -11,7 +11,7 @@ button {
 .container_button {
     display: flex;  
 }
-/* Dimensions égales entre le carré de positionnement et la webcam */
+/* Dimensions égales entre le carré de positionnement et la video */
 .carrewebcam {
     width: 450px;
     height: 350px;
@@ -23,10 +23,6 @@ video {
     display:block;
 }
 
-/* #webcam {
-    width: 100%;
-    height: 100%;
-} */
 /* Opacité de la section graduelle durant le scroll down */
 section {
     opacity: 1;
@@ -37,15 +33,12 @@ section {
     display: none;
     
 }   */
-/* Design de la caméra */
+/* Apparence caméra */
 .camView {
   position: relative;
-  /* float: left;
-  width: calc(100% - 20px);
-  margin: 10px; */
   cursor: pointer;
 }
-/* Design du texte prédiction */
+/* Apparence texte prédiction */
 .camView p {
   position: absolute;
   padding: 5px;
@@ -55,7 +48,7 @@ section {
   z-index: 2;
   font-size: 12px;
 }
-/* Design du carré de prédiction */
+/* Apparence carré de prédiction */
 .highlighter {
   background: rgba(0, 255, 0, 0.25);
   border: 1px dashed #fff;
