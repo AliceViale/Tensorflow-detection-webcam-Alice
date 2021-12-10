@@ -1,13 +1,13 @@
 /* Création de variables pour les boutons allumer/éteindre */
 var allumerwebcam = document.getElementById('webcamButtonplay');
 var eteindre = document.getElementById('webcamButtonoff');
-/*Création d'éléments stockés dans des variables*/ 
+/*Référencements à partir du DOM */
 const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
 const demosSection = document.getElementById('demos');
 const enableWebcamButton = document.getElementById('webcamButtonplay');
 const disableWebcamButton = document.getElementById('webcamButtonoff');
-/* Fonction pour vérifier présente d'User Media*/
+/* Fonction pour vérifier présence d'User Media*/
 function getUserMediaSupported() {
   return !!(navigator.mediaDevices &&
     navigator.mediaDevices.getUserMedia);
@@ -17,6 +17,7 @@ if (getUserMediaSupported()) {
 } else {
   console.warn('getUserMedia() is not supported by your browser');
 }
+/*Permission live webcam view et début classification*/
 function enableCam(event) {
   if (!model) {
     return;
@@ -24,7 +25,7 @@ function enableCam(event) {
   event.target.classList.add('removed');
   const constraints = {
     video: true
-  };
+  }; /*Activation stream webcam*/
   navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
     video.srcObject = stream;
     video.addEventListener('loadeddata', predictWebcam);
@@ -50,7 +51,7 @@ eteindre.onclick = function () {
   video.srcObject = null;
 
 };
-
+/*Chargement cocoSsd objet de l'html*/
 var model = undefined;
 cocoSsd.load().then(function (loadedModel) {
   model = loadedModel;
@@ -58,7 +59,7 @@ cocoSsd.load().then(function (loadedModel) {
 });
 /*Variable tableau pour la prédiction*/
 var children = [];
-/*Apparence des boxs de prédiction*/
+
 function predictWebcam() {
   model.detect(video).then(function (predictions) {
     for (let i = 0; i < children.length; i++) {
@@ -88,7 +89,7 @@ function predictWebcam() {
         children.push(p);
       }
     }
-
+    /*Fonction appelée pour continuer à prédire quand le navigateur est prêt*/
     window.requestAnimationFrame(predictWebcam);
   });
 }
